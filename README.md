@@ -16,4 +16,10 @@
 #### Will not have:
 
 
+Dependencies:
+  - Bootstrap
 
+dev-dependencies:
+  - Jest
+  - Express
+  - Supertest
