@@ -1,6 +1,31 @@
-let filter = document.getElementById('filter');
+const filter = document.getElementById('filter');
 filter.addEventListener('keyup', filterPosts);
 
+const allPosts = document.querySelector('#allPosts'); // 'allPosts may not be specific enough'
+
+allPosts.addEventListener('click', (e) => {
+    console.log(e)
+    fetch('localhost:3000/posts')
+    .then(resp => resp.json())
+    .then(result => appendResult(result))
+    .catch(console.warn);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function to currently correctly linked to our data structure
 function filterPosts(e) {
     let text = e.target.value.toLowerCase();
     let cardTitle = document.getElementsByClassName('card-title'); 
@@ -25,9 +50,4 @@ function filterPosts(e) {
     })
 };
 
-
-    console.log(cardTitle);
-    console.log(cardText);
-    console.log(text);
-
-
+filterPosts();
