@@ -5,7 +5,7 @@ const allPosts = document.querySelector('#allPosts'); // 'allPosts may not be sp
 
 allPosts.addEventListener('click', (e) => {
     console.log(e)
-    fetch('localhost:3000/posts')
+    fetch(`localhost:3000/posts/${d}`)
     .then(resp => resp.json())
     .then(result => appendResult(result))
     .catch(console.warn);
