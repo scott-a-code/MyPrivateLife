@@ -1,0 +1,25 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "### MosCow Priorization #### Must have:   - Emogi feature (Three emogis at least!)   - Random gif from giphy   - Board with other articles   - Comment section",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scott-a-code/MyPrivateLife.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scott-a-code/MyPrivateLife/issues"
+  },
+  "homepage": "https://github.com/scott-a-code/MyPrivateLife#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.3"
+  }
+}
