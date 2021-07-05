@@ -16,11 +16,13 @@
 
         <div class="container">
             <div class="logo">
-                <img src="" alt="site logo">
+                <a href="/">
+                    <img src="" alt="site logo">
+                </a>
             </div>
             <div class="links">
-                <a href="#">Add a Post</a>
-                <a href="#">View All Posts</a>
+                <a href="newPost">Add a Post</a>
+                <a href="allposts">View All Posts</a>
             </div>
         </div>
 
@@ -60,8 +62,8 @@
                 <h1 class="display-5 fw-bold lh-1 mb-3">My Private Life</h1>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ut harum maxime quaerat id pariatur porro tempore itaque aliquid iste, soluta quibusdam hic sapiente illo, officia veritatis debitis earum perspiciatis!</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="button" class="btn btn-secondary btn-lg px-4 me-md-2">Add a Post</button>
-                  <button type="button" class="btn btn-secondary btn-lg px-4">View All Posts</button>
+                    <button onclick="window.location.href='/newpost'" type="button" class="btn btn-secondary btn-lg px-4 me-md-2">Add a Post</button>
+                    <button onclick="window.location.href='/allposts'" type="button" class="btn btn-secondary btn-lg px-4">View All Posts</button>
                 </div>
               </div>
             </div>
