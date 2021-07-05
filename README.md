@@ -15,11 +15,13 @@
 
 #### Will not have:
 
-
+####
 Dependencies:
   - Bootstrap
+  - express
 
 dev-dependencies:
   - Jest
-  - Express
-  - Supertest
+  - supertest
+  - cors
+  - nodemon
