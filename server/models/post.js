@@ -6,7 +6,7 @@ class Comment{
         this.dateCommented = data.dateCommented;
     }
     static create(str){
-        let newComment = {commentText : str, dateCommented : Date.now()};
+        let newComment = {commentText : str.text, dateCommented : Math.floor(Date.now() / 1000)};
         return new Comment(newComment);
     }
 }
@@ -18,7 +18,7 @@ class Post {
         this.title = data.title;
         this.content = data.content;
         this.gif = data.gif;
-        this.comments = (data.comments.length>0)? data.comments.map(x => {return new Comment(x)}): data.comments;
+        this.comments = (data.comments) ? data.comments.map(x => {return new Comment(x)}): data.comments;
         this.reactions = data.reactions;
         this.timestamp = data.timestamp;
     }
@@ -27,7 +27,7 @@ class Post {
         let newPost = {
             ...post,
             id : postsJson.data.length + 1,
-            timestamp : Date.now(),
+            timestamp : Math.floor(Date.now() / 1000),
             comments : [],
             reactions: { thumbsUp: 0, heart : 0, angryFace: 0}
         }
@@ -37,23 +37,25 @@ class Post {
     addComment(comment){
         let newCommment = Comment.create(comment);
         this.comments.push(newCommment);
-        return post;
+        return this.comments;
     }
 
     addReaction(reaction){
         this.reactions[reaction]++;
-        return post;
+        return this.reactions;
     }
 
     static findById(id) {
         try {
-            let post = postsJson.data.filter((data) => data.id === id)[0];
+            let post = postsJson.data.find(post => post.id === id);
             return new Post(post);
         } catch (err) { 
             throw new Error('That post does not exist!');
         }
     }
 }
+
+module.exports = Post;
 /*
 let data = {
     title: "post title string",
