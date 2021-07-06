@@ -71,7 +71,7 @@ function updateReaction(reaction, id) {
 
 function updateUI(data) {
 
-    let gifImageUrl = data.gif.url;
+    let gifImageUrl = data.gif.moving;
     let numComments = data.comments.length;
     let datePosted = data.timestamp;
 
