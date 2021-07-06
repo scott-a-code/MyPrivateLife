@@ -20,6 +20,28 @@ document.addEventListener('keydown', (event) => {
     }
 })
 
+let reactions = [
+    {
+        fontAwesome: "thumbs-up",
+        apiCall: "thumbsUp"
+    },
+    {
+        fontAwesome: "heart",
+        apiCall: "heart"
+    },
+    {
+        fontAwesome: "angry",
+        apiCall: "angryFace"
+    }
+]
+
+reactions.forEach(reaction => {
+    let button = document.querySelector(`.comments-table i.fa-${reaction.fontAwesome}`);
+    button.addEventListener('click', (event) => {
+        updateReaction(reaction.apiCall,postId);
+    })
+})
+
 
 function getPost(id) {
   fetch(`http://localhost:3000/posts/${id}`)
@@ -33,6 +55,18 @@ function getPost(id) {
         updateUI(data);
     })
     .catch(err => console.log(err))
+}
+
+function updateReaction(reaction, id) {
+
+    fetch(`http://localhost:3000/posts/${id}/${reaction}`, {
+        method: "PUT"
+    }).then(res => {
+        if(!res.ok) {
+            throw new Error("HTTP error " + res.status)
+        }
+        location.reload();
+    }).catch(err => console.log(err));
 }
 
 function updateUI(data) {
