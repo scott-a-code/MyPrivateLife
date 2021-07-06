@@ -1,1 +1,62 @@
-{"data":[{"title":"post title string","content":"post body string","timestamp":1625241635,"gif":{"url":"https://www.nbc.com/saturday-night-live"},"comments":[{"commentText":"string for comment 1","dateCommented":1625241921},{"commentText":"string for comment 2","dateCommented":1625242133}],"reactions":{"thumbsUp":5,"heart":2,"angryFace":1}},{"title":"post title string","content":"post body string","timestamp":1625241635,"gif":{"url":"https://www.nbc.com/saturday-night-live"},"comments":[{"commentText":"string for comment 1","dateCommented":1625241921},{"commentText":"string for comment 2","dateCommented":1625242133}],"reactions":{"thumbsUp":5,"heart":2,"angryFace":1}},{"title":"test post"},{"title":"brand new test"}]}
+{
+    "data": [
+        {   
+            "id": 1,
+            "title": "post title string",
+            "content": "post body string",
+            "timestamp": 1625241635,
+            "gif": {
+                "url": "https://media.giphy.com/media/7kn27lnYSAE9O/giphy.gif"
+            },
+            "comments": [
+                {
+                    "commentText": "string for comment 1",
+                    "dateCommented": 1625241921
+                },
+                {
+                    "commentText": "string for comment 2",
+                    "dateCommented": 1625242133
+                }
+            ],
+            "reactions": {
+                "thumbsUp": 5,
+                "heart": 2,
+                "angryFace": 1
+            }
+        },
+        {
+            "id": 2,
+            "title": "post title string",
+            "content": "post body string",
+            "timestamp": 1625241635,
+            "gif": {
+                "url": "https://media.giphy.com/media/fWrDTtdw9nDVWmWrlq/giphy.gif"
+            },
+            "comments": [
+                {
+                    "commentText": "string for comment 1",
+                    "dateCommented": 1625241921
+                },
+                {
+                    "commentText": "string for comment 2",
+                    "dateCommented": 1625242133
+                }
+            ],
+            "reactions": {
+                "thumbsUp": 5,
+                "heart": 2,
+                "angryFace": 1
+            }
+        },
+        {
+            "id": 3,
+            "title": "test post",
+            "content": "TPSome quick example text to build on the card title and make up the bulk of the card's content.."
+        },
+        {
+            "id": 4,
+            "title": "brand new test",
+            "content": "BNTSome quick example text to build on the card title and make up the bulk of the card's content.."
+        }
+    ]
+}
