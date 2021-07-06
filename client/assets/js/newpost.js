@@ -22,18 +22,18 @@ function showgifs(gifArray){
         let input = document.createElement('input');
         let label = document.createElement('label');
         let img = document.createElement('img');
-        /*let gifArray =
+        let gifArray =
         {
             url:[ 
                 { moving: gif.images.fixed_width.url},
                 { still: gif.images.fixed_width_still.url}
             ]
-        };*/
+        };
 
         img.setAttribute('src', gif.images.fixed_width.url);
         img.setAttribute('class','img-fluid rounded');
         
-        input.setAttribute('value',JSON.stringify(gif));
+        input.setAttribute('value',JSON.stringify(gifArray));
         input.setAttribute('id', 'gif'+i);
         input.setAttribute('type', 'radio');
         input.setAttribute('name', 'gif');
@@ -94,11 +94,11 @@ document.getElementById('postForm').addEventListener('submit', (event) => {
             'Content-Type': 'application/json'
           },
         method: 'POST',
-        body: data // event.target is the form
+        body: datafinal // event.target is the form
     }).then((resp) => {
         return resp.json(); // or resp.text() or whatever the server sends
     }).then((body) => {
-        consol.log(body);
+        console.log(body);
         window.location.href = "./?id=" + body.id;
     }).catch((error) => {
         console.log(error)
