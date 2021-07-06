@@ -29,62 +29,33 @@ function showgifs(gifArray){
         };
 
         img.setAttribute('src', gif.images.fixed_width.url);
-        img.setAttribute('class','img-fluid rounded');
+        img.setAttribute('class','rounded');
         
         input.setAttribute('value',JSON.stringify(gifArray));
         input.setAttribute('id', 'gif'+i);
         input.setAttribute('type', 'radio');
         input.setAttribute('name', 'gif');
-        input.setAttribute('style','visibility:hidden');
+        input.setAttribute('style','display:none');
 
         label.setAttribute('for','gif'+i);
         label.setAttribute('onclick',"''");
+        label.setAttribute('class','align-self-center mx-1');
         
 
         label.append(img);
-        div.append(label);
         div.append(input);
+        div.append(label);
         i++;
     }
-
-    //finalgifHover(Json)
 }
-
-//Todo
-function gitOnTop(value){
-
-}
-/*
-//Todo
-function submitPost(event){
-    let url = 'localhost:3000'
-
-    event.preventDefault();
-    // TODO do something here to show user that form is being submitted
-    fetch(url, {
-        method: 'POST',
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-    }).then((resp) => {
-        return resp.json(); // or resp.text() or whatever the server sends
-    }).then((body) => {
-        window.location.href = "./?id=" + body.id;
-    }).catch((error) => {
-        console.log(error)
-    });
-}
-*/
-
 document.getElementById('postForm').addEventListener('submit', (event) => {
     let url = 'http://localhost:3000/posts'
     event.preventDefault();
 
     let data = Object.fromEntries(new FormData(event.target));
-    //console.log(data.gif);
     data.gif = JSON.parse(data.gif);
-    //console.log(data.gif);
     let datafinal  = JSON.stringify(data);
     
-    // TODO do something here to show user that form is being submitted
     fetch(url, {
         headers: {
             'Accept': 'application/json',
@@ -101,3 +72,15 @@ document.getElementById('postForm').addEventListener('submit', (event) => {
         console.log(error)
     });
 });
+
+document.getElementById('postForm').addEventListener("keyup", function(event) {
+    if(event.keyCode == 13){
+        event.preventDefault(); 
+    }   
+});
+
+function showmaxtext(actual,limit){
+    let p = document.getElementById('characters');
+    let left = limit-actual.value.length;
+    p.textContent = left + ' / ' + limit;
+}
