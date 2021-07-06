@@ -1,4 +1,8 @@
-const postsJson = require('../posts.json');
+if (process.env.NODE_ENV !== 'prod') {
+    require('dotenv').config();
+}
+const fs = require('fs');
+const postsJson = require(`../${process.env.DEVDATA || 'posts'}.json`);
 
 class Comment{
     constructor(data){
@@ -24,6 +28,12 @@ class Post {
     }
 
     static create(post) {
+
+        if(!post.title) {
+            throw new Error('Missing a title');
+            return
+        }
+
         let newPost = {
             ...post,
             id : postsJson.data.length + 1,
@@ -31,6 +41,16 @@ class Post {
             comments : [],
             reactions: { thumbsUp: 0, heart : 0, angryFace: 0}
         }
+
+        fs.readFile(`./${process.env.DEVDATA || 'posts'}.json`, (err, data) => {
+            let json = JSON.parse(data);
+            json.data.push(newPost);
+        
+            fs.writeFile(`./${process.env.DEVDATA || 'posts'}.json`, JSON.stringify(json), (err, result) => {
+                if(err) console.log('error', err);
+            })
+        })
+
         return new Post(newPost);
     }
 
@@ -51,6 +71,23 @@ class Post {
             return new Post(post);
         } catch (err) { 
             throw new Error('That post does not exist!');
+        }
+    }
+
+    static findAll() {
+        try {
+            return postsJson;
+        } catch (err) {
+            throw new Error('Error Processing Request');
+        }
+    }
+
+    static random() {
+        try {
+            let random = Math.floor(Math.random() * (postsJson.data.length));
+            return postsJson.data[random]
+        } catch (err) {
+            throw new Error('Error Processing Request');
         }
     }
 }
