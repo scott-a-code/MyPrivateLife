@@ -32,7 +32,8 @@ nav .links a:hover {
     /* border: none; */
 }
 
-.random-post {
+.random-post,
+.single-post {
     background-color: white ;
     border: 4px solid rgb(61, 58, 58);
     border-radius: 20px;
@@ -50,7 +51,8 @@ nav .links a:hover {
     color: rgb(61, 58, 58);
 }
 
-.random-post .gif-container {
+.random-post .gif-container,
+.single-post .gif-container {
     padding: 20px;
     flex: 0 0 100%;
 }
@@ -60,19 +62,23 @@ nav .links a:hover {
     min-height: 400px;
 }
 
-.random-post .post-text {
+.random-post .post-text,
+.single-post .post-text {
     padding: 20px;
 }
 
-.random-post .post-meta {
+.random-post .post-meta,
+.single-post .post-meta {
     padding: 20px 0;
 }
 
-.random-post .post-comments {
+.random-post .post-comments,
+.single-post .post-comments {
     float: right;
 }
 
-.random-post .post-meta div {
+.random-post .post-meta div,
+.single-post .post-meta div {
     display: inline-block;
 }
 
@@ -87,6 +93,52 @@ nav .links a:hover {
     box-shadow: 8px 8px 4px rgb(61 58 58);
 }
 
+/******* SINGLE POST PAGE ********/
+
+.single-post img {
+    width: 70%;
+}
+
+.comments-table {
+    width: 100%;
+    border: 4px solid black;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 20px;
+    box-shadow: 8px 8px 4px rgb(61 58 58);
+}
+
+.comments-table thead {
+    border-bottom: 1px solid;
+}
+
+.comments-table input {
+    width: 100%;
+    border: none;
+    background: transparent;
+}
+
+.comments-table input:focus {
+    outline: none;
+}
+
+.comments-table tbody td {
+    padding: 20px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.comments-table button {
+    color: white;
+    background-color: rgb(61, 58, 58);
+    border-radius: 10px;
+    border-width: 0px;
+    padding: 5px 10px;
+}
+
+.comments-table td:last-child {
+    text-align: right;
+}
+
+/********* FOOTER *********/
 footer {
     position: fixed;
     bottom: 0;

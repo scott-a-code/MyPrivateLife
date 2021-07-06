@@ -90,7 +90,7 @@ app.post('/posts/:index/comment', (req,res) => {
         if(err) console.log('error', err);
     })
 
-    res.send('add comments to a post');
+    res.send(post);
 })
 
 /* Update reactions for a specific post */
