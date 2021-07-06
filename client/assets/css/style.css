@@ -98,6 +98,10 @@ nav .links a:hover {
     box-shadow: 8px 8px 4px rgb(61 58 58);
 }
 
+.post-comments{
+    float:right;
+}
+
 /******* SINGLE POST PAGE ********/
 
 .single-post img {
@@ -192,6 +196,7 @@ nav .links a:hover {
 }
 
 /********* FOOTER *********/
+
 footer {
     position: fixed;
     bottom: 0;
