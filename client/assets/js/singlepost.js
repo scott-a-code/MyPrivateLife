@@ -97,9 +97,12 @@ function addComment(string, id) {
         },
         body: JSON.stringify(data)
     }).then(res => {
-        console.log("Request complete! response:", res);
+        if(!res.ok) {
+            throw new Error("HTTP error " + res.status)
+        }
+        console.log("Request complete! response:", res.json());
         location.reload();
-    });
+    }).catch(err => console.log(err));
 }
 
 function format_time(s,format) {
