@@ -24,10 +24,8 @@ function showgifs(gifArray){
         let img = document.createElement('img');
         let gifArray =
         {
-            url:[ 
-                { moving: gif.images.fixed_width.url},
-                { still: gif.images.fixed_width_still.url}
-            ]
+            moving: gif.images.fixed_width.url,
+            still: gif.images.fixed_width_still.url
         };
 
         img.setAttribute('src', gif.images.fixed_width.url);
@@ -41,7 +39,6 @@ function showgifs(gifArray){
 
         label.setAttribute('for','gif'+i);
         label.setAttribute('onclick',"''");
-        label.setAttribute('class','col-2 align-self-center');
         
 
         label.append(img);
@@ -94,9 +91,9 @@ document.getElementById('postForm').addEventListener('submit', (event) => {
             'Content-Type': 'application/json'
           },
         method: 'POST',
-        body: datafinal // event.target is the form
+        body: datafinal
     }).then((resp) => {
-        return resp.json(); // or resp.text() or whatever the server sends
+        return resp.json();
     }).then((body) => {
         console.log(body);
         window.location.href = "./?id=" + body.id;
