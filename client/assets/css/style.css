@@ -19,6 +19,14 @@ nav .container .logo {
     flex: 1;
 }
 
+nav .logo img {
+    height: 40px;
+}
+
+nav .links {
+    display: flex;
+}
+
 nav .links a {
     color: white;
     text-decoration: none;
@@ -91,6 +99,10 @@ nav .links a:hover {
     border: 4px solid rgb(61, 58, 58);
     border-radius: 20px;
     box-shadow: 8px 8px 4px rgb(61 58 58);
+}
+
+.post-comments{
+    float:right;
 }
 
 /******* SINGLE POST PAGE ********/
@@ -176,7 +188,18 @@ nav .links a:hover {
     flex-grow: 1;
 }
 
+.comments-table i {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.comments-table i:hover {
+    background-color: cornflowerblue;
+    border-radius: 5px;
+}
+
 /********* FOOTER *********/
+
 footer {
     position: fixed;
     bottom: 0;
