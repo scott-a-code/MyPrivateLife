@@ -19,6 +19,14 @@ nav .container .logo {
     flex: 1;
 }
 
+nav .logo img {
+    height: 40px;
+}
+
+nav .links {
+    display: flex;
+}
+
 nav .links a {
     color: white;
     text-decoration: none;
