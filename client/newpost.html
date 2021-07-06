@@ -10,25 +10,104 @@
     <script defer src="assets/js/newpost.js"></script>
 </head>
 <body>
+    <style>
+        #gif-select label{
+
+        }
+
+
+    </style>
     
     <nav>
 
         <div class="container">
             <div class="logo">
-                <img src="" alt="site logo">
+                <a href="/">
+                    <img src="" alt="site logo">
+                </a>
             </div>
             <div class="links">
-                <a href="#">Add a Post</a> <!--delete as this is what this page does?-->
-                <a href="#">View All Posts</a>
+                <a href="newPost">Add a Post</a>
+                <a href="allposts">View All Posts</a>
             </div>
         </div>
-
     </nav>
-    <main>
-
+    <main >
+        <div class='container px-4 py-5'>
+            <div class = 'row justify-content-center'>
+                <form class= 'col-8'>
+                    <div class='gif-container'>
+                        <!-- <img src="" class="d-block mx-lg-auto img-fluid" alt="Random Post" width="700" height="500" loading="lazy"> -->
+                    </div>
+                    <div>
+                        <textarea class="form-control" id="content" rows="3"></textarea>
+                    </div>
+                    <div class="input-group my-3">
+                        <input type="text" id='gif-topic' class="form-control" placeholder="Gif topic please!" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="gif-button" onclick='gifselection()'>Search</button>
+                        </div>
+                    </div>
+                    <div>
+                         <div multiple class="form-control" id="gif-select">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
     <footer>
         Team Awesome © 2021
     </footer>
+    <script>
+        document.getElementById("gif-button").addEventListener("click", gifselection);
+
+        async function gifselection(e){
+            e.preventDefault();
+           
+            let value = document.getElementById("gif-topic").value;
+            document.getElementById("gif-topic").value = '';
+            let data = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=aWqPT5uBm54EQ5x9ooFj4TpWjXxF0mNh&q=${value}&limit=10&offset=0&rating=g&lang=en`);
+            let dataJson = await data.json();
+            showgif(dataJson)                   
+        }
+        function showgif(gifArray){
+            let div = document.getElementById("gif-select")
+            
+            div.innerHTML = '';
+            console.log(gifArray.data);
+            
+             
+            let i=1;
+            for(gif of gifArray.data){
+                let input = document.createElement('input');
+                let label = document.createElement('label');
+                let img = document.createElement('img');
+                let gifJson =  gif;
+
+                img.setAttribute('src', gif.images.fixed_width.url);
+                img.setAttribute('class','col-12');
+                
+                input.setAttribute('value', gifJson);
+                input.setAttribute('id', 'gif'+i);
+                input.setAttribute('type', 'radio');
+                input.setAttribute('name', 'gif-search-result');
+                input.setAttribute('style','visibility:hidden');
+
+                label.setAttribute('for','gif'+i);
+                label.setAttribute('onclick',"''");
+                label.setAttribute('class','col-2');
+                
+
+                label.append(img);
+                div.append(label);
+                div.append(input);
+                i++;
+            }
+
+            finalgifHover(Json)
+        }
+
+    </script>
 </body>
 </html>
