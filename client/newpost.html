@@ -25,16 +25,18 @@
     </nav>
     <main >
         <div class='container px-4 py-5'>
-            <div class = 'row justify-content-center'>
+            <div class = 'row justify-content-center '>
                 <form class= 'col-8 new-post' id='postForm' action='/'>
-                    <div class='gif-container'>
-                        <!-- <img src="" class="d-block mx-lg-auto img-fluid" alt="Random Post" width="700" height="500" loading="lazy"> -->
+                    <!--<div class='gif-container'>
+                        <img src="" class="d-block mx-lg-auto img-fluid" alt="Random Post" width="700" height="500" loading="lazy"> 
+                    </div>-->
+                    <div>
+                        <input class="form-control form-control-lg my-3" type="text" placeholder="Title" name='title'>
                     </div>
                     <div>
-                        <input class="form-control form-control-lg" type="text" placeholder="Title" name='title'>
-                    </div>
-                    <div>
-                        <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+                        
+                        <textarea class="form-control" id="content" rows="3" name="content" maxlength='300'  onkeyup='showmaxtext(this,300)'></textarea>
+                        <p id='characters'>300 / 300</p>
                     </div>
                     <div class="input-group my-3">
                         <input type="text" id='gif-topic' class="form-control" placeholder="Gif topic please!" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -44,7 +46,7 @@
                     </div>
                     <div>
                          <div multiple class="form-control">
-                            <div class="d-inline-flex overflow-auto" id="gif-select">
+                            <div class="d-inline-flex overflow-auto col-12" id="gif-select">
                             </div>
                         </div>
                     </div>
