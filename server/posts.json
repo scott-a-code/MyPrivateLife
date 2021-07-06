@@ -5,7 +5,7 @@
       "title": "post title string",
       "content": "post body string",
       "timestamp": 1625241635,
-      "gif": { "url": "https://www.nbc.com/saturday-night-live" },
+      "gif": { "url": "https://media.giphy.com/media/7kn27lnYSAE9O/giphy.gif" },
       "comments": [
         { "commentText": "string for comment 1", "dateCommented": 1625241921 },
         { "commentText": "string for comment 2", "dateCommented": 1625242133 }
@@ -17,7 +17,7 @@
       "title": "post title string",
       "content": "post body string",
       "timestamp": 1625241635,
-      "gif": { "url": "https://www.nbc.com/saturday-night-live" },
+      "gif": { "url": "https://media.giphy.com/media/fWrDTtdw9nDVWmWrlq/giphy.gif" },
       "comments": [
         { "commentText": "string for comment 1", "dateCommented": 1625241921 },
         { "commentText": "string for comment 2", "dateCommented": 1625242133 }
