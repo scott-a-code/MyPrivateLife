@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Post Number 1",
+      "content": "This is the content for post number 1",
+      "gif": {
+        "url": "https://media0.giphy.com/media/BzyTuYCmvSORqs1ABM/200w.gif?cid=8cb6bcfbqj6372y7gx9df67a3zu0gq2tklt3osugze5hhffg&rid=200w.gif&ct=g"
+      },
+      "comments": [
+        { "commentText": "string for comment 1", "dateCommented": 1625241921 },
+        { "commentText": "string for comment 2", "dateCommented": 1625242133 }
+      ],
+      "reactions": { "thumbsUp": 6, "heart": 3, "angryFace": 2 },
+      "timestamp": 1625241635
+    }
+  ]
+}
