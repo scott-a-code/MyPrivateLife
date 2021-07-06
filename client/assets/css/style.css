@@ -185,6 +185,16 @@ nav .links a:hover {
     flex-grow: 1;
 }
 
+.comments-table i {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.comments-table i:hover {
+    background-color: cornflowerblue;
+    border-radius: 5px;
+}
+
 /********* FOOTER *********/
 
 footer {
