@@ -190,5 +190,8 @@ footer {
 /********** NEW POST PAGE **********/
 .new-post img{
     width: auto;
-    min-height: 10vh;
+    height: 10vh;
+}
+[type='radio']:checked+label img{
+    border: 6px solid rgb(235, 200, 7);    
 }
