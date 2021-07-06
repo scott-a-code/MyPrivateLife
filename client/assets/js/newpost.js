@@ -48,6 +48,7 @@ function showgifs(gifArray){
         i++;
     }
 }
+
 document.getElementById('postForm').addEventListener('submit', (event) => {
     let url = 'http://localhost:3000/posts'
     event.preventDefault();
@@ -67,7 +68,7 @@ document.getElementById('postForm').addEventListener('submit', (event) => {
         return resp.json();
     }).then((body) => {
         console.log(body);
-        window.location.href = "./?id=" + body.id;
+        window.location.href = "./singlepost?id=" + body.id;
     }).catch((error) => {
         console.log(error)
     });
