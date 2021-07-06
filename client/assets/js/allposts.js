@@ -1,6 +1,9 @@
 const filter = document.getElementById('filter');
 filter.addEventListener('keyup', filterPosts);
 
+const cardsContainer = document.querySelector('#allPosts');
+
+// const queryString = window.location.search;
 // const urlParams = new URLSearchParams(queryString);
 // const postId = urlParams.get('id');
 
@@ -41,27 +44,22 @@ function getAllPosts(){
 }
 
 function appendPosts(data){
-    console.log(data);
     for(let i=0; i<data.length; i++){
         let numComments = data[i].comments.length;
-        console.log(numComments);
-    
         let {heart: numHearts, thumbsUp: numThumbs, angryFace: numAngry} = data[i].reactions;
 
         let newCard = document.createElement('div');
         newCard.setAttribute('class','col singleCard');
-
-        let newAnchor = document.createElement('a');
-        newAnchor.href = data[i].url;
-        newCard.appendChild(newAnchor);
+        cardsContainer.appendChild(newCard);
 
         let newInnerCard = document.createElement('div');
         newInnerCard.setAttribute('class','card h-100');
-        newAnchor.appendChild(newInnerCard);
+        newCard.appendChild(newInnerCard);
 
+        // add event listener 'mouseenter' to start the gif and 'mouseleave' to switch back to still 
         let gif = document.createElement('img');
         gif.setAttribute('class', 'card-img-top');
-        gif.setAttribute('src', data.gif.url);
+        gif.setAttribute('src', data[i].gif.still);
         gif.setAttribute('alt', 'Giphy gif');
         newInnerCard.appendChild(gif);
 
@@ -79,7 +77,7 @@ function appendPosts(data){
         cardText.textContent = data[i].content;
         cardBody.appendChild(cardText);
 
-        let commentAnchor = createElement('a');
+        let commentAnchor = document.createElement('a');
         commentAnchor.setAttribute('class', 'btn btn-primary')
         commentAnchor.href = '#'
         commentAnchor.textContent = 'Comment'
