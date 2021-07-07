@@ -80,6 +80,13 @@ document.getElementById('postForm').addEventListener('submit', (event) => {
 document.getElementById('postForm').addEventListener("keyup", function(event) {
     if(event.keyCode == 13){
         event.preventDefault(); 
+        if(document.activeElement === document.getElementById('title')){
+            focuson('content');
+        }
+        else if(document.activeElement === document.getElementById('content')){
+            focuson('gif-topic');
+        }
+        else document.getElementById("gif-button").click();
     }   
 });
 
@@ -106,3 +113,6 @@ function changesrc(img,src){
 
 
 //<img src="" class="d-block mx-lg-auto img-fluid" alt="New Post GIF" loading="lazy"> 
+function focuson(direction){
+    document.getElementById(direction).focus();
+}
