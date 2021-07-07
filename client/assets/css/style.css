@@ -299,6 +299,9 @@ footer {
     visibility: hidden;
 }
 
+#errormesage{
+    color: lightcoral;
+}
 @media only screen and (max-width: 1150px) {
     #allPosts {
         margin-left: 60px;

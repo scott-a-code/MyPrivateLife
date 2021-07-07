@@ -34,35 +34,35 @@
 
         <div class='container px-4 py-5'>
             <div class = 'row justify-content-center '>
-                <form class= 'col-8 new-post' id='postForm' action='/'>
-
-                    <div class='form-control mt-3 p-0'>
-                        <div id='new-gif-container' onclick= 'focuson("gif-topic")'>
-                            <p > Here goes your gif</p>
+                <form class= 'col-8 new-post container' id='postForm' action='/'>
+                    <div class='row flex-row-reverse'>
+                        <div class='form-control col-lg p-lg-0 mt-lg-3 me-lg-3'>
+                            <div id='new-gif-container' onclick= 'focuson("gif-topic")'>
+                                <p > Here goes your gif</p>
+                            </div>
+                        </div> 
+                        <div class='col-lg'>
+                            <input class="form-control form-control-lg my-3" type="text" id='title' placeholder="Title" name='title' autocomplete="off" >
+                                                  
+                            <textarea class="form-control" id="content" rows="3" name="content" maxlength='300'  onkeyup='showmaxtext(this,300)' placeholder= 'Place your content here!' ></textarea>
+                            <p id='characters'>300 / 300</p>
                         </div>
                     </div>
-                    <div>
-                        <input class="form-control form-control-lg my-3" type="text" id='title' placeholder="Title" name='title'>
-                    </div>
-                    <div>
-                        
-                        <textarea class="form-control" id="content" rows="3" name="content" maxlength='300'  onkeyup='showmaxtext(this,300)'></textarea>
-                        <p id='characters'>300 / 300</p>
-                    </div>
-                    <div class="input-group my-3">
-                        <input type="text" id='gif-topic' class="form-control" placeholder="Gif topic please!" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="gif-button">Search</button>
+                    <div class='row'>
+                        <div class="input-group my-3">
+                            <input type="text" id='gif-topic' class="form-control" placeholder="Gif topic please!" autocomplete="off">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="gif-button">Search</button>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                         <div multiple class="form-control hidden">
+                        <div multiple class="form-control hidden">
                             <div class="d-inline-flex overflow-auto col-12" id="gif-select">
                             </div>
                         </div>
-                    </div>
+                    </div>                 
                     <div class="input-group my-3 justify-content-end">
-                        <button class="btn btn-outline-secondary" type="submit" id="gif-button" value="Submit">Submit</button>
+                        <p id='errormesage' class='hidden mx-3'><p>   
+                        <button class="btn btn-outline-secondary" type="submit" id="post-button" value="Submit">Submit</button>
                     </div>
 
                 </form>

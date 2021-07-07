@@ -51,44 +51,48 @@ function showgifs(gifArray){
     }
     div.style.visibility='visible';
 }
+document.getElementById('postForm').addEventListener("keyup", function(event) {
+    if(event.keyCode == 13){
+        document.getElementById("gif-button").click();
+    }
+});
 
 document.getElementById('postForm').addEventListener('submit', (event) => {
-    let url = 'https://my-private-life.herokuapp.com/posts'
+    let url = 'http://localhost:3000/posts'
     event.preventDefault();
 
     let data = Object.fromEntries(new FormData(event.target));
-    data.gif = JSON.parse(data.gif);
-    let datafinal  = JSON.stringify(data);
-    
-    fetch(url, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        method: 'POST',
-        body: datafinal
-    }).then((resp) => {
-        return resp.json();
-    }).then((body) => {
-        console.log(body);
-        window.location.href = "./singlepost?id=" + body.id;
-    }).catch((error) => {
-        console.log(error)
-    });
+    if(data.gif && data.title && data.content){
+
+        data.gif = JSON.parse(data.gif);
+
+
+        let datafinal  = JSON.stringify(data);
+        
+        fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: datafinal
+        }).then((resp) => {
+            return resp.json();
+        }).then((body) => {
+            console.log(body);
+            window.location.href = "./singlepost?id=" + body.id;
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+    else{
+        if(!data.title) showerror('Title');
+        else if(!data.content) showerror('Content');
+        else showerror('Gif');
+    }
 });
 
-document.getElementById('postForm').addEventListener("keyup", function(event) {
-    if(event.keyCode == 13){
-        event.preventDefault(); 
-        if(document.activeElement === document.getElementById('title')){
-            focuson('content');
-        }
-        else if(document.activeElement === document.getElementById('content')){
-            focuson('gif-topic');
-        }
-        else document.getElementById("gif-button").click();
-    }   
-});
+
 
 function showmaxtext(actual,limit){
     let p = document.getElementById('characters');
@@ -101,12 +105,15 @@ function putigiftop(label){
     div.innerHTML='';
     let input = document.getElementById(label.getAttributeNode("for").value);
     let src = JSON.parse(input.getAttributeNode("value").value);
+    
     let img = document.createElement('img');
+    img.setAttribute('loading',"lazy");
     img.src=src.still;
     img.setAttribute('onmouseover','changesrc(this,"'+src.moving+'")');
     img.setAttribute('onmouseout','changesrc(this,"'+src.still+'")');
     div.append(img);
 }
+
 function changesrc(img,src){
     img.src = src;
 }
@@ -115,4 +122,13 @@ function changesrc(img,src){
 //<img src="" class="d-block mx-lg-auto img-fluid" alt="New Post GIF" loading="lazy"> 
 function focuson(direction){
     document.getElementById(direction).focus();
+}
+
+function showerror(str){
+    let p = document.getElementById('errormesage');
+    p.textContent = str + ' needed';
+    p.style.visibility = 'visible';
+    if(str != 'Gif') {
+        focuson(str.toLowerCase());
+    }
 }
