@@ -81,7 +81,7 @@ nav search input:focus {
 
 .random-post img {
     width: 100%;
-    min-height: 400px;
+    height: 60%;
 }
 
 .random-post .post-text,
@@ -104,6 +104,10 @@ nav search input:focus {
 .random-post .post-meta div,
 .single-post .post-meta div {
     display: inline-block;
+}
+
+.random-post {
+    margin-bottom: 100px;
 }
 
 .card-deck {

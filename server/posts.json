@@ -3,14 +3,14 @@
     {
         "id": 1,
         "title": "Post Number 1",
-        "content": "This is the content for post number 1",
+        "content": "I love cats, I also love Thor. I really wish Marvel cold do an alternate reality film where they're all cats!",
         "gif": {
           "moving": "https://media0.giphy.com/media/BzyTuYCmvSORqs1ABM/200w.gif?cid=8cb6bcfbqj6372y7gx9df67a3zu0gq2tklt3osugze5hhffg&rid=200w.gif&ct=g",
           "still": "https://media0.giphy.com/media/BzyTuYCmvSORqs1ABM/200w_s.gif?cid=8cb6bcfbqj6372y7gx9df67a3zu0gq2tklt3osugze5hhffg&rid=200w_s.gif&ct=g"
         },
         "comments": [
-          { "commentText": "string for comment 1", "dateCommented": 1625241921 },
-          { "commentText": "string for comment 2", "dateCommented": 1625242133 }
+          { "commentText": "Wow! Crazy cat logic but I love it!", "dateCommented": 1625241921 },
+          { "commentText": "Cat Avengers vs Dog Avengers?", "dateCommented": 1625242133 }
         ],
         "reactions": { "thumbsUp": 7, "heart": 4, "angryFace": 2 },
         "timestamp": 1625241635
