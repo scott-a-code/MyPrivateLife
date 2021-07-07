@@ -211,10 +211,27 @@ footer {
 }
 
 /********** NEW POST PAGE **********/
-.new-post img{
+#gif-select img{
     width: auto;
     height: 10vh;
 }
+#new-gif-container {
+    min-height:20vh;
+}
+#new-gif-container img{
+    width: 100%;
+}
+#new-gif-container p {
+    position: absolute;
+    top: 27%;
+    right: 42%;    
+    color: rgb(133, 133, 133);
+    font-family: "Helvetica Neue";
+}
+
 [type='radio']:checked+label img{
     border: 6px solid rgb(235, 200, 7);    
+}
+.hidden{
+    visibility: hidden;
 }
