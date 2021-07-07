@@ -3,38 +3,6 @@ filter.addEventListener('keyup', filterPosts);
 
 const cardsContainer = document.querySelector('#allPosts');
 
-// const queryString = window.location.search;
-// const urlParams = new URLSearchParams(queryString);
-// const postId = urlParams.get('id');
-
-// getPost(postId);
-
-// looping through cards to give each an event listener linked to the correct ID
-// const cards = document.querySelectorAll('.singleCard'); 
-// for(let i=0; i<cards.length; i++) {
-//     // let link;
-//     cards[i].addEventListener('click' , function getSpecificPost(){
-//         console.log('hello');
-//     });
-// };
-
-
-// function getSpecificPost (data){
-//     let index;
-//     console.log(data)
-//     for(let i=0; i<data.length; i++){
-//         if (i === parseInt(data.id)){
-//             index = i;
-//             fetch(`http://localhost:3000/posts/${index}`)
-//             .then(resp => resp.json())
-//             .then(appendPost)
-//             .catch(console.warn);
-//             return;
-//         }
-//     }
-// }
-
-
 // retrieve all posts as soon as site is loaded
 function getAllPosts(){
     fetch('http://localhost:3000/posts')
@@ -43,6 +11,7 @@ function getAllPosts(){
     .catch(console.warn);
 }
 
+//creates framework of cards and populates with content from posts.json
 function appendPosts(data){
     for(let i=0; i<data.length; i++){
         let numComments = data[i].comments.length;
@@ -79,7 +48,7 @@ function appendPosts(data){
 
         let commentAnchor = document.createElement('a');
         commentAnchor.setAttribute('class', 'btn btn-primary')
-        commentAnchor.href = '#'
+        commentAnchor.href = 'singlePost?id=' + data[i].id;
         commentAnchor.textContent = 'Comment'
         cardBody.appendChild(commentAnchor);
 
@@ -123,26 +92,9 @@ function appendPosts(data){
 
 getAllPosts();
 
-// fetch(`localhost:3000/posts/${index}`)
-// .then(resp => resp.json())
-// .then(result => appendResult(result))
-// .catch(console.warn);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function to currently correctly linked to our data structure
 function filterPosts(e) {
+    console.log(e);
     let text = e.target.value.toLowerCase();
     let cardTitle = document.getElementsByClassName('card-title'); 
     let cardText = document.getElementsByClassName('card-text');
@@ -166,4 +118,4 @@ function filterPosts(e) {
     })
 };
 
-// filterPosts();
+filterPosts();
