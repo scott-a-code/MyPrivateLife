@@ -235,3 +235,7 @@ footer {
 .hidden{
     visibility: hidden;
 }
+
+#errormesage{
+    color: lightcoral;
+}
