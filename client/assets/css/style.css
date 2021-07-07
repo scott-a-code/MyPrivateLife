@@ -37,6 +37,21 @@ nav .links a:hover {
     text-decoration: underline;
 }
 
+nav search {
+    flex: 1;
+    padding: 10px;
+}
+
+nav search input {
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+
+nav search input:focus {
+    outline: none;
+}
+
 .random-post,
 .single-post,
 .new-post {
@@ -76,7 +91,8 @@ nav .links a:hover {
 }
 
 .random-post .post-meta,
-.single-post .post-meta {
+.single-post .post-meta,
+#allPosts .post-meta {
     padding: 20px 0;
 }
 
@@ -101,10 +117,43 @@ nav .links a:hover {
     box-shadow: 8px 8px 4px rgb(61 58 58);
 }
 
-.post-comments{
-    float:right;
+.card-body .card-text {
+    position: relative;
 }
 
+#allPosts .post-meta {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#allPosts .post-comments {
+    display: flex;
+    flex: auto;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#allPosts .post-comments i,
+#allPosts .post-comments span {
+    padding: 0 2px;
+}
+
+#allPosts .card-img-top {
+    height: 60%;
+    padding: 20px;
+}
+
+#allPosts .card-img-top img {
+    object-fit: contain;
+}
+
+#allPosts {
+    margin-bottom: 60px;
+}
 /******* SINGLE POST PAGE ********/
 
 .single-post img {
