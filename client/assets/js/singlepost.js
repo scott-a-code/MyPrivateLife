@@ -44,7 +44,7 @@ reactions.forEach(reaction => {
 
 
 function getPost(id) {
-  fetch(`http://localhost:3000/posts/${id}`)
+  fetch(`https://my-private-life.herokuapp.com/posts/${id}`)
     .then(function(res){
       if(!res.ok) {
         throw new Error("HTTP error " + res.status)
@@ -59,7 +59,7 @@ function getPost(id) {
 
 function updateReaction(reaction, id) {
 
-    fetch(`http://localhost:3000/posts/${id}/${reaction}`, {
+    fetch(`https://my-private-life.herokuapp.com/posts/${id}/${reaction}`, {
         method: "PUT"
     }).then(res => {
         if(!res.ok) {
@@ -124,8 +124,9 @@ function getComments(commentArray) {
 function addComment(string, id) {
     let data = {text: string};
 
-    fetch(`http://localhost:3000/posts/${id}/comment`, {
+    fetch(`https://my-private-life.herokuapp.com/posts/${id}/comment`, {
         method: "POST", 
+        credentials: 'same-origin',
         headers: {
             'Content-Type': 'application/json',
         },
