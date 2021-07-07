@@ -6,7 +6,7 @@ filter.addEventListener('keyup', filterPosts);
 
 // retrieve all posts as soon as site is loaded
 function getAllPosts(){
-    fetch('http://localhost:3000/posts')
+    fetch('https://my-private-life.herokuapp.com/posts')
     .then(resp => resp.json())
     .then(appendPosts)
     .catch(console.warn);
