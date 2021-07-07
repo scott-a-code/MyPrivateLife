@@ -50,8 +50,13 @@ function appendPosts(data){
         cardBody.appendChild(cardTitle);
         
         let cardText = document.createElement('p');
-        cardText.setAttribute('class', 'card-text')
-        cardText.textContent = data[i].content;
+        cardText.setAttribute('class', 'card-text');
+
+        let cardBodyText = data[i].content;
+        if(cardBodyText.length > 120) {
+            cardBodyText = cardBodyText.substring(0,120) + '...';
+        }
+        cardText.textContent = cardBodyText;
         cardBody.appendChild(cardText);
 
         let postMeta = document.createElement('div');
