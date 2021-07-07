@@ -104,11 +104,12 @@ D. Available APIs
 - Code added to support heroku deployment
 - Client code updated to point to heroku
 - Server Test Suit improved
+- All Posts filter added
 
 
 ########### BUGS / OUTSTANDING DEV ###########
 
-[] Filter on all posts page
+[x] Filter on all posts page
 [] Logo on all posts page link to homepage 
 [] Consistent styling across pages
-[] Comment button will link to single post page
+[x] Comment button will link to single post page
