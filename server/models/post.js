@@ -45,9 +45,14 @@ class Post {
         fs.readFile(`./${process.env.DEVDATA || 'posts'}.json`, (err, data) => {
             let json = JSON.parse(data);
             json.data.push(newPost);
+            console.log("read file successfully");
         
-            fs.writeFile(`./${process.env.DEVDATA || 'posts'}.json`, JSON.stringify(json), (err, result) => {
-                if(err) console.log('error', err);
+            fs.writeFileSync(`./${process.env.DEVDATA || 'posts'}.json`, JSON.stringify(json), (err, result) => {
+                if(err) {
+                    console.log('error', err)
+                } else {
+                    console.log("file has been written to");
+                };
             })
         })
 
