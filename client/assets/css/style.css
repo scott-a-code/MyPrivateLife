@@ -280,6 +280,7 @@ footer {
 }
 #new-gif-container {
     min-height:20vh;
+    position: relative;
 }
 #new-gif-container img{
     width: 100%;
@@ -287,7 +288,7 @@ footer {
 #new-gif-container p {
     position: absolute;
     top: 27%;
-    right: 42%;    
+    right: 33%;    
     color: rgb(133, 133, 133);
     font-family: "Helvetica Neue";
 }
@@ -302,6 +303,7 @@ footer {
 #errormesage{
     color: lightcoral;
 }
+
 @media only screen and (max-width: 1150px) {
     #allPosts {
         margin-left: 60px;
