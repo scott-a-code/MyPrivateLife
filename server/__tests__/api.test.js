@@ -54,6 +54,26 @@ describe('API', () => {
                 .expect(404)
         })
 
+        test("GET /posts/:id/comments", async () => {   
+            const post = Post.findById(1);
+
+            await request(api)
+                .get(`/posts/${post.id}/comments`)
+                .expect(200)
+                .then((response) => {
+                    expect(response.body[0].commentText).toBe(post.comments[0].commentText)
+                    expect(response.body[0].dateCommented).toBe(post.comments[0].dateCommented)
+                })
+        })
+
+        test('GET /posts/random', (done) => {
+            request(api)
+                .get('/posts/random')
+                .expect(hasExpectedKeys)
+                .expect(200)
+                .end(done);
+        });
+
     })
 
     describe("/POST", () => {
@@ -92,9 +112,17 @@ describe('API', () => {
 });
 
 function hasExpectedKeys(res) {
-    if (!('id' in res.body[0])) throw new Error("missing id key");
-    if (!('title' in res.body[0])) throw new Error("missing title key");
-    if (!('gif' in res.body[0])) throw new Error("missing gif key");
+
+    let result;
+    if (Array.isArray(res.body)) {
+        result = res.body[0];
+    } else {
+        result = res.body;
+    }
+
+    if (!('id' in result)) throw new Error("missing id key");
+    if (!('title' in result)) throw new Error("missing title key");
+    if (!('gif' in result)) throw new Error("missing gif key");
 }
 
 function hasAllPosts(res) {
