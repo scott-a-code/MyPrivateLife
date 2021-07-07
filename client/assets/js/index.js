@@ -1,7 +1,7 @@
 getRandomPost();
 
 function getRandomPost() {
-  fetch('http://localhost:3000/posts/random')
+  fetch('https://my-private-life.herokuapp.com/posts/random')
     .then(function(res){
       if(!res.ok) {
         throw new Error("HTTP error " + res.status)
