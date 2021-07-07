@@ -3,7 +3,6 @@ const cardsContainer = document.querySelector('#allPosts');
 
 filter.addEventListener('keyup', filterPosts);
 
-
 // retrieve all posts as soon as site is loaded
 function getAllPosts(){
     fetch('https://my-private-life.herokuapp.com/posts')
@@ -51,19 +50,28 @@ function appendPosts(data){
         cardBody.appendChild(cardTitle);
         
         let cardText = document.createElement('p');
-        cardText.setAttribute('class', 'card-text')
-        cardText.textContent = data[i].content;
+        cardText.setAttribute('class', 'card-text');
+
+        let cardBodyText = data[i].content;
+        if(cardBodyText.length > 120) {
+            cardBodyText = cardBodyText.substring(0,120) + '...';
+        }
+        cardText.textContent = cardBodyText;
         cardBody.appendChild(cardText);
+
+        let postMeta = document.createElement('div');
+        postMeta.className = ('post-meta');
+        cardBody.appendChild(postMeta);
         
         let commentAnchor = document.createElement('a');
-        commentAnchor.setAttribute('class', 'btn btn-primary')
+        commentAnchor.setAttribute('class', 'btn btn-secondary')
         commentAnchor.href = 'singlePost?id=' + data[i].id;
         commentAnchor.textContent = 'Comment'
-        cardBody.appendChild(commentAnchor);
+        postMeta.appendChild(commentAnchor);
         
         let reactionsDiv = document.createElement('div');
         reactionsDiv.setAttribute('class', 'post-comments');
-        cardBody.appendChild(reactionsDiv);
+        postMeta.appendChild(reactionsDiv);
         
         let iForThumbs = document.createElement('i');
         iForThumbs.setAttribute('class', 'far fa-thumbs-up');
@@ -119,4 +127,4 @@ function filterPosts(e) {
     }; 
 };
 
-filterPosts();
+//filterPosts();
