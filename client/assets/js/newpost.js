@@ -58,7 +58,7 @@ document.getElementById('postForm').addEventListener("keyup", function(event) {
 });
 
 document.getElementById('postForm').addEventListener('submit', (event) => {
-    let url = 'http://localhost:3000/posts'
+    let url = 'https://my-private-life.herokuapp.com/posts'
     event.preventDefault();
 
     let data = Object.fromEntries(new FormData(event.target));
