@@ -108,7 +108,7 @@ D. Available APIs
 
 ########### BUGS / OUTSTANDING DEV ###########
 
-[] Filter on all posts page
+[x] Filter on all posts page
 [] Logo on all posts page link to homepage 
 [] Consistent styling across pages
 [] Comment button will link to single post page
