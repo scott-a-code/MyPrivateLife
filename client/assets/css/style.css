@@ -274,6 +274,10 @@ footer {
 }
 
 /********** NEW POST PAGE **********/
+.new-post {
+    margin-bottom: 100px;
+}
+
 #gif-select img{
     width: auto;
     height: 10vh;

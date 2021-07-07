@@ -32,27 +32,27 @@
 
     <main >
 
-        <div class='container px-4 py-5'>
+        <div class='container px-4'>
             <div class = 'row justify-content-center '>
                 <form class= 'col-8 new-post container' id='postForm' action='/'>
                     <div class='row flex-row-reverse'>
                         <div class='form-control col-lg p-lg-0 mt-lg-3 me-lg-3'>
                             <div id='new-gif-container' onclick= 'focuson("gif-topic")'>
-                                <p > Here goes your gif</p>
+                                <p>Click to Add a GIF</p>
                             </div>
                         </div> 
                         <div class='col-lg'>
                             <input class="form-control form-control-lg my-3" type="text" id='title' placeholder="Title" name='title' autocomplete="off" >
                                                   
-                            <textarea class="form-control" id="content" rows="3" name="content" maxlength='300'  onkeyup='showmaxtext(this,300)' placeholder= 'Place your content here!' ></textarea>
+                            <textarea class="form-control" id="content" rows="3" name="content" maxlength='300'  onkeyup='showmaxtext(this,300)' placeholder= 'What are you thinking about?' ></textarea>
                             <p id='characters'>300 / 300</p>
                         </div>
                     </div>
                     <div class='row'>
                         <div class="input-group my-3">
-                            <input type="text" id='gif-topic' class="form-control" placeholder="Gif topic please!" autocomplete="off">
+                            <input type="text" id='gif-topic' class="form-control" placeholder="Search for your GIF..." autocomplete="off">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="gif-button">Search</button>
+                                <button class="btn btn-secondary" type="button" id="gif-button">Search</button>
                             </div>
                         </div>
                         <div multiple class="form-control hidden">
@@ -62,7 +62,7 @@
                     </div>                 
                     <div class="input-group my-3 justify-content-end">
                         <p id='errormesage' class='hidden mx-3'><p>   
-                        <button class="btn btn-outline-secondary" type="submit" id="post-button" value="Submit">Submit</button>
+                        <button class="btn btn-secondary" type="submit" id="post-button" value="Submit">Post</button>
                     </div>
 
                 </form>
