@@ -1,5 +1,8 @@
-
+const filter = document.getElementById('filter');
 const cardsContainer = document.querySelector('#allPosts');
+
+filter.addEventListener('keyup', filterPosts);
+
 
 // retrieve all posts as soon as site is loaded
 function getAllPosts(){
@@ -30,6 +33,12 @@ function appendPosts(data){
         gif.setAttribute('class', 'card-img-top');
         gif.setAttribute('src', data[i].gif.still);
         gif.setAttribute('alt', 'Giphy gif');
+        gif.addEventListener('mouseenter', function() {
+            gif.setAttribute('src', data[i].gif.moving);
+        })
+        gif.addEventListener('mouseleave', function() {
+            gif.setAttribute('src', data[i].gif.still);
+        })
         newInnerCard.appendChild(gif);
         
         let cardBody = document.createElement('div');
@@ -90,10 +99,7 @@ function appendPosts(data){
     }
 }
 
-const filter = document.getElementById('filter');
-filter.addEventListener('keyup', filterPosts);
-
-// function to currently correctly linked to our data structure
+// function to correctly filter posts by title and content
 function filterPosts(e) {
     let text = e.target.value.toLowerCase();
     let cardTitleArray = Array.from(document.getElementsByClassName('card-title')); 
