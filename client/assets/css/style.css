@@ -1,8 +1,14 @@
+html, body {
+    height: 100%;
+}
+
 body {
     background: url("../img/background.png");
     color: rgb(61, 58, 58) !important;
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -110,6 +116,11 @@ nav search input:focus {
     margin-bottom: 100px;
 }
 
+#allPosts {
+    margin-left: 110px;
+    margin-right: 110px;
+}
+
 .card-deck {
     display: flex; 
 }
@@ -155,6 +166,7 @@ nav search input:focus {
     object-fit: contain;
 }
 
+.post-comment-container,
 #allPosts {
     margin-bottom: 60px;
 }
@@ -254,9 +266,7 @@ nav search input:focus {
 /********* FOOTER *********/
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    flex-shrink: 0;
     width: 100%;
     background-color: rgba(211, 211, 211, 0.308);
     text-align: center;
@@ -287,4 +297,11 @@ footer {
 }
 .hidden{
     visibility: hidden;
+}
+
+@media only screen and (max-width: 1150px) {
+    #allPosts {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
 }
