@@ -56,33 +56,33 @@ C. Using the application
 4. To see previously added posts click `View All Posts`
 
 D. Available APIs
-1. GET
-/ - Retrieve all data
-/posts - Retrieve all posts
-/posts/random - Retrieve a random post
-/posts/{id} - Retrieve a single post
-/posts/{id}/comments - Retrieve the comments for a single post
+#### GET
+- `/` - Retrieve all data
+- `/posts` - Retrieve all posts
+- `/posts/random` - Retrieve a random post
+- `/posts/{id}` - Retrieve a single post
+- `/posts/{id}/comments` - Retrieve the comments for a single post
 
-2. POST
-/posts - Create a new post
+#### POST
+- `/posts` - Create a new post
     This requires a json payload in the following format...
-    {
+    ```{
         "title": "",
         "content": "",
         "gif": {
             "moving":"url of gif",
             "still":"url for static image of gif"
         }
-    }
+    }```
 
-/posts/{id}/comment - Add a comment to an existing post
+- `/posts/{id}/comment` - Add a comment to an existing post
     This requires a json payload in the following format...
-    {
+    ```{
         "text": ""
-    }
+    }```
 
-3. PUT
-/posts/{id}/{reaction} - React to a specific post
+#### PUT
+- `/posts/{id}/{reaction}` - React to a specific post
     reaction can be one of these values
     - thumbsUp
     - heart
@@ -109,7 +109,7 @@ D. Available APIs
 
 ########### BUGS / OUTSTANDING DEV ###########
 
-[x] Filter on all posts page
-[] Logo on all posts page link to homepage 
-[] Consistent styling across pages
-[x] Comment button will link to single post page
+- [x] Filter on all posts page
+- [] Logo on all posts page link to homepage 
+- [] Consistent styling across pages
+- [x] Comment button will link to single post page
