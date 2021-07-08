@@ -102,6 +102,22 @@ describe('API', () => {
             })
             .expect(422)
         })
+
+        test('Add a comment', async () => {
+
+            const post = Post.findById(1);
+            const postComments = post.comments;
+
+            await request(api)
+            .post(`/posts/${post.id}/comment`)
+            .send({
+                "text": "this is a test comment from jest"
+            })
+            .expect(200)
+            .then((response) => {
+                expect(jsonData.data[0].comments.length).toEqual(postComments.length + 1)
+            })
+        })
         
     })
 
