@@ -36,10 +36,9 @@
             <div class = 'row justify-content-center '>
                 <form class= 'col-8 new-post container' id='postForm' action='/'>
                     <div class='row flex-row-reverse'>
-                        <div class='form-control col-lg p-lg-0 mt-lg-3 me-lg-3'>
-                            <div id='new-gif-container' onclick= 'focuson("gif-topic")'>
-                                <p>Click to Add a GIF</p>
-                            </div>
+                        <div class='gif form-control col-lg p-lg-0 mt-lg-3 me-lg-3' onclick= 'focuson("gif-topic")'>
+                            <p>Click to Add a GIF</p>
+                            <div id='new-gif-container'></div>
                         </div> 
                         <div class='col-lg'>
                             <input class="form-control form-control-lg my-3" type="text" id='title' placeholder="Title" name='title' autocomplete="off" >
