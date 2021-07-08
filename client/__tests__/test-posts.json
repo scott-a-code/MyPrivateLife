@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "title": "Post Number 2",
+      "content": "This is the content for post number 2",
+      "gif": {
+        "moving": "https://media3.giphy.com/media/xT0BKiK5sOCVdBUhiM/200w.gif?cid=8cb6bcfbos957hqzue0pdqsmubozke5b2uy3ewsk8mub5oal&rid=200w.gif&ct=g",
+        "still": "https://media3.giphy.com/media/xT0BKiK5sOCVdBUhiM/200w_s.gif?cid=8cb6bcfbos957hqzue0pdqsmubozke5b2uy3ewsk8mub5oal&rid=200w_s.gif&ct=g"
+      },
+      "comments": [
+        {
+          "commentText": "string for comment 1",
+          "dateCommented": 1625241921
+        }
+      ],
+      "reactions": {
+        "thumbsUp": 7,
+        "heart": 5,
+        "angryFace": 11
+      },
+      "timestamp": 1625241635
+    }
+  ]
+}

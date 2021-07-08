@@ -1,7 +1,7 @@
 const filter = document.getElementById('filter');
 const cardsContainer = document.querySelector('#allPosts');
 
-filter.addEventListener('keyup', filterPosts);
+// filter.addEventListener('keyup', filterPosts);
 
 
 // retrieve all posts as soon as site is loaded
@@ -106,17 +106,24 @@ function filterPosts(e) {
     let cardtextArray = Array.from(document.getElementsByClassName('card-text'));
 
     // combine arrays so only have to search through 1
-    let searchingArray = cardTitleArray.concat(cardtextArray);
-    
-   //match with card-title and card-text content + node chaining to display correct content
-   for(let i=0; i<searchingArray.length; i++){ 
-       let postContent = searchingArray[i].firstChild.textContent;
+    let searchingArray = [];
+    for (let i = 0; i < cardTitleArray.length; i++) {
+        searchingArray[i] = cardTitleArray[i].textContent + ' ' + cardtextArray[i].textContent;
+        }
+
+    //match with card-title and card-text content + node chaining to display correct content
+    for(let i=0; i<searchingArray.length; i++){ 
+        let postContent = searchingArray[i];
        if(postContent.toLowerCase().indexOf(text) !=-1){
-            searchingArray[i].parentNode.parentNode.parentNode.style.display='block';
+            cardTitleArray[i].parentNode.parentNode.parentNode.style.display='block';
         } else {
-            searchingArray[i].parentNode.parentNode.parentNode.style.display='none';
+            cardTitleArray[i].parentNode.parentNode.parentNode.style.display='none';
         }
     }; 
 };
 
-filterPosts();
+module.exports = {
+    getAllPosts,
+    appendPosts,
+    filterPosts
+}
