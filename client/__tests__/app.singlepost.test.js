@@ -96,7 +96,7 @@
     })
     */
     describe('format_time', ( ) => {
-        test('', ( ) => {
+        test('It should execute and return the new time', ( ) => {
             expect(app.format_time(1625242133, 'medium')).toBeTruthy();            
         })
     })
