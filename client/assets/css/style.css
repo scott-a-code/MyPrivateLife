@@ -1,8 +1,15 @@
+html, body {
+    height: 100%;
+}
+
 body {
     background: url("../img/background.png");
+    background-attachment: fixed;
     color: rgb(61, 58, 58) !important;
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -37,6 +44,25 @@ nav .links a:hover {
     text-decoration: underline;
 }
 
+nav search {
+    flex: 1;
+    padding: 10px;
+}
+
+nav search input {
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+
+nav search input:focus {
+    outline: none;
+}
+
+main {
+    flex-grow: 1;
+}
+
 .random-post,
 .single-post,
 .new-post {
@@ -66,7 +92,7 @@ nav .links a:hover {
 
 .random-post img {
     width: 100%;
-    min-height: 400px;
+    max-height: 350px;
 }
 
 .random-post .post-text,
@@ -76,7 +102,8 @@ nav .links a:hover {
 }
 
 .random-post .post-meta,
-.single-post .post-meta {
+.single-post .post-meta,
+#allPosts .post-meta {
     padding: 20px 0;
 }
 
@@ -90,21 +117,64 @@ nav .links a:hover {
     display: inline-block;
 }
 
+.random-post {
+    margin-bottom: 100px;
+}
+
+#allPosts {
+    margin-left: 110px;
+    margin-right: 110px;
+}
+
 .card-deck {
     display: flex; 
 }
 
 .card {
     background-color: white;
-    border: 4px solid rgb(61, 58, 58);
-    border-radius: 20px;
-    box-shadow: 8px 8px 4px rgb(61 58 58);
+    border: 4px solid rgb(61, 58, 58) !important;
+    border-radius: 20px !important;
+    box-shadow: 8px 8px 4px rgb(61 58 58) !important;
 }
 
-.post-comments{
-    float:right;
+.card-body .card-text {
+    position: relative;
 }
 
+#allPosts .post-meta {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#allPosts .post-comments {
+    display: flex;
+    flex: auto;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#allPosts .post-comments i,
+#allPosts .post-comments span {
+    padding: 0 2px;
+}
+
+#allPosts .card-img-top {
+    height: 60%;
+    padding: 20px;
+}
+
+#allPosts .card-img-top img {
+    object-fit: contain;
+}
+
+.post-comment-container,
+#allPosts {
+    margin-bottom: 60px;
+}
 /******* SINGLE POST PAGE ********/
 
 .single-post img {
@@ -201,9 +271,7 @@ nav .links a:hover {
 /********* FOOTER *********/
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    flex-shrink: 0;
     width: 100%;
     background-color: rgba(211, 211, 211, 0.308);
     text-align: center;
@@ -211,10 +279,60 @@ footer {
 }
 
 /********** NEW POST PAGE **********/
-.new-post img{
+.new-post {
+    margin-bottom: 100px;
+}
+
+#gif-select img{
     width: auto;
     height: 10vh;
 }
+#new-gif-container {
+    min-height:20vh;
+    position: relative;
+}
+#new-gif-container img{
+    width: 100%;
+}
+
+.gif.form-control {
+    position: relative;
+    border-radius: 15px;
+}
+
+.gif.form-control p {
+    position: absolute;
+    top: 40%;
+    right: 32%;    
+    color: rgb(133, 133, 133);
+    font-family: "Helvetica Neue";
+    cursor: pointer;
+}
+
+.gif.form-control:hover {
+    cursor: pointer;
+}
+
 [type='radio']:checked+label img{
     border: 6px solid rgb(235, 200, 7);    
+}
+.hidden{
+    visibility: hidden;
+}
+
+#errormesage{
+    color: lightcoral;
+}
+
+@media only screen and (max-width: 1150px) {
+    #allPosts {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .random-post-box {
+        justify-content: center;
+    }
 }

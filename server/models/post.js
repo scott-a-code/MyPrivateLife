@@ -42,14 +42,15 @@ class Post {
             reactions: { thumbsUp: 0, heart : 0, angryFace: 0}
         }
 
-        fs.readFile(`./${process.env.DEVDATA || 'posts'}.json`, (err, data) => {
-            let json = JSON.parse(data);
-            json.data.push(newPost);
+        //fs.readFile(`./${process.env.DEVDATA || 'posts'}.json`, (err, data) => {
+        //let json = JSON.parse(data);
+        let json = postsJson;
+        json.data.push(newPost);
         
-            fs.writeFile(`./${process.env.DEVDATA || 'posts'}.json`, JSON.stringify(json), (err, result) => {
-                if(err) console.log('error', err);
-            })
+        fs.writeFile(`./${process.env.DEVDATA || 'posts'}.json`, JSON.stringify(json), (err, result) => {
+            if(err) console.log('error', err);
         })
+        //})
 
         return new Post(newPost);
     }

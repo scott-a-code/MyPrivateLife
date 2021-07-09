@@ -32,35 +32,36 @@
 
     <main >
 
-        <div class='container px-4 py-5'>
+        <div class='container px-4'>
             <div class = 'row justify-content-center '>
-                <form class= 'col-8 new-post' id='postForm' action='/'>
-
-                    <!--<div class='gif-container'>
-                        <img src="" class="d-block mx-lg-auto img-fluid" alt="Random Post" width="700" height="500" loading="lazy"> 
-                    </div>-->
-                    <div>
-                        <input class="form-control form-control-lg my-3" type="text" placeholder="Title" name='title'>
-                    </div>
-                    <div>
-                        
-                        <textarea class="form-control" id="content" rows="3" name="content" maxlength='300'  onkeyup='showmaxtext(this,300)'></textarea>
-                        <p id='characters'>300 / 300</p>
-                    </div>
-                    <div class="input-group my-3">
-                        <input type="text" id='gif-topic' class="form-control" placeholder="Gif topic please!" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="gif-button">Search</button>
+                <form class= 'col-8 new-post container' id='postForm' action='/'>
+                    <div class='row flex-row-reverse'>
+                        <div class='gif form-control col-lg p-lg-0 mt-lg-3 me-lg-3' onclick= 'focuson("gif-topic")'>
+                            <p>Click to Add a GIF</p>
+                            <div id='new-gif-container'></div>
+                        </div> 
+                        <div class='col-lg'>
+                            <input class="form-control form-control-lg my-3" type="text" id='title' placeholder="Title" name='title' autocomplete="off" >
+                                                  
+                            <textarea class="form-control" id="content" rows="3" name="content" maxlength='300'  onkeyup='showmaxtext(this,300)' placeholder= 'What are you thinking about?' ></textarea>
+                            <p id='characters'>300 / 300</p>
                         </div>
                     </div>
-                    <div>
-                         <div multiple class="form-control">
+                    <div class='row'>
+                        <div class="input-group my-3">
+                            <input type="text" id='gif-topic' class="form-control" placeholder="Search for your GIF..." autocomplete="off">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="button" id="gif-button">Search</button>
+                            </div>
+                        </div>
+                        <div multiple class="form-control hidden">
                             <div class="d-inline-flex overflow-auto col-12" id="gif-select">
                             </div>
                         </div>
-                    </div>
+                    </div>                 
                     <div class="input-group my-3 justify-content-end">
-                        <button class="btn btn-outline-secondary" type="submit" id="gif-button" value="Submit">Submit</button>
+                        <p id='errormesage' class='hidden mx-3'><p>   
+                        <button class="btn btn-secondary" type="submit" id="post-button" value="Submit">Post</button>
                     </div>
 
                 </form>

@@ -102,7 +102,58 @@ describe('API', () => {
             })
             .expect(422)
         })
+
+        test('Add a comment', async () => {
+
+            const post = Post.findById(1);
+            const postComments = post.comments;
+
+            await request(api)
+            .post(`/posts/${post.id}/comment`)
+            .send({
+                "text": "this is a test comment from jest"
+            })
+            .expect(200)
+            .then((response) => {
+                expect(jsonData.data[0].comments.length).toEqual(postComments.length + 1)
+            })
+        })
         
+    })
+
+    describe("/PUT", () => {
+
+        const post = Post.findById(1);
+        const thumbs = post.reactions.thumbsUp;
+        const heart = post.reactions.heart;
+        const angry = post.reactions.angryFace;
+
+        test('Update a thumbs up reaction', async () => {
+            await request(api)
+            .put(`/posts/${post.id}/thumbsUp`)
+            .expect(200)
+            .then((response) => {
+                expect(jsonData.data[0].reactions.thumbsUp).toEqual(thumbs + 1)
+            })
+        })
+
+        test('Update a heart reaction', async () => {
+            await request(api)
+            .put(`/posts/${post.id}/heart`)
+            .expect(200)
+            .then((response) => {
+                expect(jsonData.data[0].reactions.heart).toEqual(heart + 1)
+            })
+        })
+
+        test('Update an angry reaction', async () => {
+            await request(api)
+            .put(`/posts/${post.id}/angryFace`)
+            .expect(200)
+            .then((response) => {
+                expect(jsonData.data[0].reactions.angryFace).toEqual(angry + 1)
+            })
+        })
     })
 
 	afterAll((done) => {
