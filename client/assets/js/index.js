@@ -58,3 +58,9 @@ function format_time(s) {
     
     return dtFormat.format(new Date(s * 1e3));
   }
+
+  module.exports = {
+    getRandomPost,
+    updateUI,
+    format_time
+}
