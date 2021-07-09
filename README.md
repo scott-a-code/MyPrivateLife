@@ -105,11 +105,19 @@ D. Available APIs
 - Client code updated to point to heroku
 - Server Test Suit improved
 - All Posts filter added
+- Post truncated on preview pages
+- Styling Tweaks
+- Fix for Heroku remove fs.readFile()
+- Background positioning fixed
+- Add more Server Side tests
+- Footer positioning reworked
+- Client Side Tests Added
 
 
 ########### BUGS / OUTSTANDING DEV ###########
 
 - [x] Filter on all posts page
-- [] Logo on all posts page link to homepage 
-- [] Consistent styling across pages
+- [x] Logo on all posts page link to homepage 
+- [x] Consistent styling across pages
 - [x] Comment button will link to single post page
+- [ ] If you search for a gif with Enter key it tries to submit the form
