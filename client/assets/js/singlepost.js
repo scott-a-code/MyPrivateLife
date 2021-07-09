@@ -149,3 +149,12 @@ function format_time(s,format) {
     
     return dtFormat.format(new Date(s * 1e3));
 }
+
+module.exports = {
+    getPost,
+    format_time,
+    getComments,
+    addComment,
+    updateUI,
+    updateReaction
+}
