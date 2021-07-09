@@ -3,7 +3,6 @@ const cardsContainer = document.querySelector('#allPosts');
 
 // filter.addEventListener('keyup', filterPosts);
 
-
 // retrieve all posts as soon as site is loaded
 function getAllPosts(){
     fetch('https://my-private-life.herokuapp.com/posts')
