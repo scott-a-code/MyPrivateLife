@@ -121,3 +121,4 @@ D. Available APIs
 - [x] Consistent styling across pages
 - [x] Comment button will link to single post page
 - [ ] If you search for a gif with Enter key it tries to submit the form
+- [ ] Improved error handling 
