@@ -1,7 +1,7 @@
 const filter = document.getElementById('filter');
 const cardsContainer = document.querySelector('#allPosts');
 
-// filter.addEventListener('keyup', filterPosts);
+filter.addEventListener('keyup', filterPosts);
 
 // retrieve all posts as soon as site is loaded
 function getAllPosts(){
