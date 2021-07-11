@@ -59,7 +59,7 @@
 
      test('it catches errors and returns a warning', async () =>{
         fetch.mockReject(() =>{ Promise.reject("API failure");
-        expect(testfunc).toEqual(null);
+        expect(funcs.getRandomPost).toEqual(null);
         })
     });
  });
